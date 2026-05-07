@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/logo-main.png">
+  <meta name="msapplication-TileImage" content="images/66.png">
+  <title>Réservation — Lahlou Hammam &amp; Spa | Tanger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/66.png" alt="Lahlou Hammam &amp; Spa" style="height:80px;width:auto;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="booking.html" class="active">Réservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:0663622657" class="nav-phone">📞 0663 622 657</a>
+      <a href="booking.html" class="nav-book-btn"><span class="btn-label">Réserver</span></a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" role="dialog">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Galerie</a>
+  <a href="booking.html">Réservation</a>
+  <a href="contact.html">Contact</a>
+  <a href="booking.html" class="mobile-book">✨ Réserver Maintenant</a>
+</div>
+
+
+<main>
+<section style="background:var(--cream)">
+  <div class="container">
+    <div class="booking-layout">
+
+      <!-- Info Side -->
+      <div class="booking-info">
+        <span class="section-tag">Votre Bien-être</span>
+        <h2>Un Moment Rien Que Pour Vous</h2>
+        <p>Réservez votre prestation en ligne et notre équipe vous contactera pour confirmer votre rendez-vous dans les 24 heures.</p>
+
+        <div class="booking-benefits">
+          <div class="booking-benefit">
+            <div class="booking-benefit-icon" aria-hidden="true">📞</div>
+            <div class="booking-benefit-text">
+              <strong>Confirmation rapide</strong>
+              <span>Nous vous rappelons dans les 24h pour confirmer votre RDV</span>
+            </div>
+          </div>
+          <div class="booking-benefit">
+            <div class="booking-benefit-icon" aria-hidden="true">💯</div>
+            <div class="booking-benefit-text">
+              <strong>Espace 100% Féminin</strong>
+              <span>Un cadre intime et sécurisé réservé aux femmes</span>
+            </div>
+          </div>
+          <div class="booking-benefit">
+            <div class="booking-benefit-icon" aria-hidden="true">✨</div>
+            <div class="booking-benefit-text">
+              <strong>Équipe Experte</strong>
+              <span>Des professionnelles passionnées à votre service</span>
+            </div>
+          </div>
+          <div class="booking-benefit">
+            <div class="booking-benefit-icon" aria-hidden="true">💬</div>
+            <div class="booking-benefit-text">
+              <strong>Réserver via WhatsApp</strong>
+              <span>Envoyez-nous un message directement sur WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem;padding:1.75rem;background:white;border-radius:var(--radius);border:1px solid var(--border)">
+          <h4 style="margin-bottom:1rem;font-size:1rem">Horaires d'ouverture</h4>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.875rem">
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Lundi – Vendredi</span><strong>9h00 – 19h00</strong></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Samedi</span><strong>9h00 – 18h00</strong></div>
+            <div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">Dimanche</span><strong style="color:#c0392b">Fermé</strong></div>
+          </div>
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)">
+            <a href="https://wa.me/212663622657?text=Bonjour%2C+je+voudrais+prendre+un+rendez-vous+chez+Lahlou+Hammam+%26+Spa" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.85rem 1.5rem;background:linear-gradient(135deg,#25D366,#128C7E);color:white;border-radius:var(--radius-full);font-weight:700;font-size:.9rem;transition:all .3s"
+               onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+              💬 Réserver sur WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="booking-form-card">
+        <!-- Form Content -->
+        <div id="booking-form-wrap">
+          <h3>Formulaire de Réservation</h3>
+          <p>Remplissez le formulaire ci-dessous — nous vous confirmons votre RDV rapidement</p>
+
+          <form id="booking-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-prenom">Prénom <span class="req">*</span></label>
+                <input type="text" id="b-prenom" class="form-control" placeholder="Votre prénom" required>
+                <div class="form-error">Ce champ est obligatoire.</div>
+              </div>
+              <div class="form-group">
+                <label for="b-nom">Nom <span class="req">*</span></label>
+                <input type="text" id="b-nom" class="form-control" placeholder="Votre nom" required>
+                <div class="form-error">Ce champ est obligatoire.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="b-phone">Numéro de Téléphone <span class="req">*</span></label>
+              <input type="tel" id="b-phone" class="form-control" placeholder="0600 000 000" required>
+              <div class="form-error">Ce champ est obligatoire.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="b-service">Service Souhaité <span class="req">*</span></label>
+              <select id="b-service" class="form-control" required>
+                <option value="">— Choisir un service —</option>
+                <optgroup label="💇‍♀️ Coiffure">
+                  <option>Coupe femme</option>
+                  <option>Brushing</option>
+                  <option>Coloration</option>
+                  <option>Mèches / Balayage</option>
+                  <option>Lissage brésilien</option>
+                  <option>Défrisage</option>
+                  <option>Soin capillaire</option>
+                  <option>Coiffure mariage / soirée</option>
+                </optgroup>
+                <optgroup label="💅 Esthétique">
+                  <option>Vernis permanent (mains)</option>
+                  <option>Vernis permanent (pieds)</option>
+                  <option>Manucure classique</option>
+                  <option>Pédicure classique</option>
+                  <option>Extension d'ongles gel</option>
+                  <option>Soin visage hydratant</option>
+                  <option>Nettoyage de peau</option>
+                  <option>Épilation (préciser la zone)</option>
+                </optgroup>
+                <optgroup label="🧖‍♀️ Hammam &amp; Massage">
+                  <option>Hammam traditionnel</option>
+                  <option>Gommage kessa</option>
+                  <option>Hammam + Gommage</option>
+                  <option>Enveloppement rhassoul</option>
+                  <option>Massage relaxant (30 min)</option>
+                  <option>Massage relaxant (60 min)</option>
+                  <option>Massage aux pierres chaudes</option>
+                  <option>Forfait Spa Complet (500 MAD)</option>
+                </optgroup>
+              </select>
+              <div class="form-error">Veuillez sélectionner un service.</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="b-date">Date Souhaitée <span class="req">*</span></label>
+                <input type="date" id="b-date" class="form-control" required>
+                <div class="form-error">Ce champ est obligatoire.</div>
+              </div>
+              <div class="form-group">
+                <label for="b-heure">Créneau Horaire <span class="req">*</span></label>
+                <select id="b-heure" class="form-control" required>
+                  <option value="">— Heure —</option>
+                  <option>09:00</option><option>09:30</option>
+                  <option>10:00</option><option>10:30</option>
+                  <option>11:00</option><option>11:30</option>
+                  <option>12:00</option><option>12:30</option>
+                  <option>13:00</option><option>13:30</option>
+                  <option>14:00</option><option>14:30</option>
+                  <option>15:00</option><option>15:30</option>
+                  <option>16:00</option><option>16:30</option>
+                  <option>17:00</option><option>17:30</option>
+                  <option>18:00</option><option>18:30</option>
+                </select>
+                <div class="form-error">Veuillez choisir un horaire.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="b-notes">Notes / Demandes Spéciales</label>
+              <textarea id="b-notes" class="form-control" rows="3" placeholder="Précisions sur votre demande, allergies, préférences…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-full btn-lg" style="border-radius:var(--radius)">
+              ✨ Confirmer la Réservation
+            </button>
+
+            <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:1rem">
+              🔒 Vos informations restent confidentielles
+            </p>
+          </form>
+        </div>
+
+        <!-- Success -->
+        <div class="form-success-msg" id="booking-success">
+          <div class="success-icon-big">🌸</div>
+          <h3>Demande Envoyée !</h3>
+          <p>Merci pour votre réservation. Notre équipe vous contactera dans les <strong>24 heures</strong> pour confirmer votre rendez-vous.</p>
+          <p style="margin-bottom:1.5rem;font-size:0.875rem">Un message de confirmation vous sera envoyé sur le numéro fourni.</p>
+          <button class="btn btn-gold" onclick="resetBooking()">Nouvelle Réservation</button>
+          <div style="margin-top:1.25rem">
+            <a href="https://wa.me/212663622657" target="_blank" rel="noopener" style="font-size:.875rem;color:var(--gold-dark);font-weight:600">
+              Ou confirmer via WhatsApp →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo-text">Lahlou Hammam &amp; Spa</span>
+        <span class="footer-logo-sub">💯% Femmes · Tanger, Maroc</span>
+        <p>Votre espace de beauté et bien-être à Tanger.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/lahlou.spa_coif_esth_hammam/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://web.facebook.com/lahlouspa/" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@lahlouhammamspa5398" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://wa.me/212663622657" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Galerie</a></li><li><a href="booking.html">Réservation</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#coiffure">Coiffure</a></li><li><a href="services.html#esthetique">Esthétique</a></li><li><a href="services.html#hammam">Hammam</a></li><li><a href="services.html#massage">Massage</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:0663622657">📞 0663 622 657</a></li><li>📍 <a href="https://maps.app.goo.gl/YPXD6qZvrERKqMsW9" target="_blank" rel="noopener">Tanger 90000, Maroc</a></li><li><a href="http://lahlou.ma" target="_blank" rel="noopener">🌐 lahlou.ma</a></li></ul></div>
+    </div>
+  </div>
+  <div class="container"><div class="footer-bottom"><p>© 2026 Lahlou Hammam &amp; Spa. Tous droits réservés.</p></div></div>
+</footer>
+
+<a href="https://wa.me/212663622657" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <span class="whatsapp-tooltip">Réserver via WhatsApp</span>
+</a>
+<button class="back-to-top" aria-label="Haut de page">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+  // Set minimum date to today
+  const dateInput = document.getElementById('b-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+</script>
+</body>
+</html>

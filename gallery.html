@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/logo-main.png">
+  <meta name="msapplication-TileImage" content="images/66.png">
+  <title>Galerie — Lahlou Hammam &amp; Spa | Tanger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Filter bar */
+    .gallery-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Lato', sans-serif;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    /* Unified gallery grid */
+    .salon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease, transform 0.3s ease,
+                  box-shadow 0.3s ease, opacity 0.2s ease;
+    }
+    .gallery-item:hover {
+      border-color: var(--gold);
+      transform: scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-item .item-zoom {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s ease;
+      font-size: 1.6rem;
+      opacity: 0;
+    }
+    .gallery-item:hover .item-zoom {
+      background: rgba(0,0,0,0.28);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .salon-grid { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+    }
+    @media (max-width: 480px) {
+      .salon-grid { grid-template-columns: repeat(2, 1fr); gap: 0.625rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/66.png" alt="Lahlou Hammam &amp; Spa" style="height:80px;width:auto;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html" class="active">Galerie</a></li>
+      <li><a href="booking.html">Réservation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:0663622657" class="nav-phone">📞 0663 622 657</a>
+      <a href="booking.html" class="nav-book-btn"><span class="btn-label">Réserver</span></a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" role="dialog">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Galerie</a>
+  <a href="booking.html">Réservation</a>
+  <a href="contact.html">Contact</a>
+  <a href="booking.html" class="mobile-book">✨ Réserver Maintenant</a>
+</div>
+
+
+<main>
+<section style="background:var(--cream)">
+  <div class="container">
+
+    <div class="gallery-filter-bar" role="group" aria-label="Filtrer la galerie">
+      <button class="filter-btn active" data-filter="all">Tout voir</button>
+      <button class="filter-btn" data-filter="salon">Le Salon</button>
+      <button class="filter-btn" data-filter="coiffure">Coiffure</button>
+      <button class="filter-btn" data-filter="hammam">Hammam &amp; Spa</button>
+      <button class="filter-btn" data-filter="promotions">Promotions</button>
+    </div>
+
+    <div class="salon-grid" id="gallery-grid">
+
+      <!-- Notre Salon -->
+      <div class="gallery-item" data-category="salon" data-src="Salone/1.jpg" data-alt="Notre Salon — vue 1" role="button" tabindex="0" aria-label="Agrandir la photo du salon 1">
+        <img src="Salone/1.jpg" alt="Notre Salon — vue 1" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/2.jpg" data-alt="Notre Salon — vue 2" role="button" tabindex="0" aria-label="Agrandir la photo du salon 2">
+        <img src="Salone/2.jpg" alt="Notre Salon — vue 2" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/3.jpg" data-alt="Notre Salon — vue 3" role="button" tabindex="0" aria-label="Agrandir la photo du salon 3">
+        <img src="Salone/3.jpg" alt="Notre Salon — vue 3" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/4.jpg" data-alt="Notre Salon — vue 4" role="button" tabindex="0" aria-label="Agrandir la photo du salon 4">
+        <img src="Salone/4.jpg" alt="Notre Salon — vue 4" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/5.jpg" data-alt="Notre Salon — vue 5" role="button" tabindex="0" aria-label="Agrandir la photo du salon 5">
+        <img src="Salone/5.jpg" alt="Notre Salon — vue 5" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/6.jpg" data-alt="Notre Salon — vue 6" role="button" tabindex="0" aria-label="Agrandir la photo du salon 6">
+        <img src="Salone/6.jpg" alt="Notre Salon — vue 6" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/7.jpg" data-alt="Notre Salon — vue 7" role="button" tabindex="0" aria-label="Agrandir la photo du salon 7">
+        <img src="Salone/7.jpg" alt="Notre Salon — vue 7" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="salon" data-src="Salone/8.jpg" data-alt="Notre Salon — vue 8" role="button" tabindex="0" aria-label="Agrandir la photo du salon 8">
+        <img src="Salone/8.jpg" alt="Notre Salon — vue 8" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+
+      <!-- Coiffure -->
+      <div class="gallery-item" data-category="coiffure" data-src="Cwafor/1.jpg" data-alt="Coiffure — vue 1" role="button" tabindex="0" aria-label="Agrandir la photo coiffure 1">
+        <img src="Cwafor/1.jpg" alt="Coiffure — vue 1" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="coiffure" data-src="Cwafor/2.jpg" data-alt="Coiffure — vue 2" role="button" tabindex="0" aria-label="Agrandir la photo coiffure 2">
+        <img src="Cwafor/2.jpg" alt="Coiffure — vue 2" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="coiffure" data-src="Cwafor/3.webp" data-alt="Coiffure — vue 3" role="button" tabindex="0" aria-label="Agrandir la photo coiffure 3">
+        <img src="Cwafor/3.webp" alt="Coiffure — vue 3" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="coiffure" data-src="Cwafor/4.webp" data-alt="Coiffure — vue 4" role="button" tabindex="0" aria-label="Agrandir la photo coiffure 4">
+        <img src="Cwafor/4.webp" alt="Coiffure — vue 4" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="coiffure" data-src="Cwafor/5.jpg" data-alt="Coiffure — vue 5" role="button" tabindex="0" aria-label="Agrandir la photo coiffure 5">
+        <img src="Cwafor/5.jpg" alt="Coiffure — vue 5" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+
+      <!-- Hammam & Spa -->
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/1.jpg" data-alt="Hammam &amp; Spa — vue 1" role="button" tabindex="0" aria-label="Agrandir la photo hammam 1">
+        <img src="Hamam/1.jpg" alt="Hammam &amp; Spa — vue 1" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/2.jpg" data-alt="Hammam &amp; Spa — vue 2" role="button" tabindex="0" aria-label="Agrandir la photo hammam 2">
+        <img src="Hamam/2.jpg" alt="Hammam &amp; Spa — vue 2" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/3.jpg" data-alt="Hammam &amp; Spa — vue 3" role="button" tabindex="0" aria-label="Agrandir la photo hammam 3">
+        <img src="Hamam/3.jpg" alt="Hammam &amp; Spa — vue 3" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/4.jpg" data-alt="Hammam &amp; Spa — vue 4" role="button" tabindex="0" aria-label="Agrandir la photo hammam 4">
+        <img src="Hamam/4.jpg" alt="Hammam &amp; Spa — vue 4" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/5.jpg" data-alt="Hammam &amp; Spa — vue 5" role="button" tabindex="0" aria-label="Agrandir la photo hammam 5">
+        <img src="Hamam/5.jpg" alt="Hammam &amp; Spa — vue 5" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/6.jpg" data-alt="Hammam &amp; Spa — vue 6" role="button" tabindex="0" aria-label="Agrandir la photo hammam 6">
+        <img src="Hamam/6.jpg" alt="Hammam &amp; Spa — vue 6" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/7.jpg" data-alt="Hammam &amp; Spa — vue 7" role="button" tabindex="0" aria-label="Agrandir la photo hammam 7">
+        <img src="Hamam/7.jpg" alt="Hammam &amp; Spa — vue 7" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/8.jpg" data-alt="Hammam &amp; Spa — vue 8" role="button" tabindex="0" aria-label="Agrandir la photo hammam 8">
+        <img src="Hamam/8.jpg" alt="Hammam &amp; Spa — vue 8" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/9.jpg" data-alt="Hammam &amp; Spa — vue 9" role="button" tabindex="0" aria-label="Agrandir la photo hammam 9">
+        <img src="Hamam/9.jpg" alt="Hammam &amp; Spa — vue 9" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="hammam" data-src="Hamam/10.jpg" data-alt="Hammam &amp; Spa — vue 10" role="button" tabindex="0" aria-label="Agrandir la photo hammam 10">
+        <img src="Hamam/10.jpg" alt="Hammam &amp; Spa — vue 10" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+
+      <!-- Promotions -->
+      <div class="gallery-item" data-category="promotions" data-src="promo/1.jpg" data-alt="Promotion — vue 1" role="button" tabindex="0" aria-label="Agrandir la photo promotion 1">
+        <img src="promo/1.jpg" alt="Promotion — vue 1" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/2.jpg" data-alt="Promotion — vue 2" role="button" tabindex="0" aria-label="Agrandir la photo promotion 2">
+        <img src="promo/2.jpg" alt="Promotion — vue 2" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/3.jpg" data-alt="Promotion — vue 3" role="button" tabindex="0" aria-label="Agrandir la photo promotion 3">
+        <img src="promo/3.jpg" alt="Promotion — vue 3" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/5.jpg" data-alt="Promotion — vue 5" role="button" tabindex="0" aria-label="Agrandir la photo promotion 5">
+        <img src="promo/5.jpg" alt="Promotion — vue 5" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/6.jpg" data-alt="Promotion — vue 6" role="button" tabindex="0" aria-label="Agrandir la photo promotion 6">
+        <img src="promo/6.jpg" alt="Promotion — vue 6" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/7.jpg" data-alt="Promotion — vue 7" role="button" tabindex="0" aria-label="Agrandir la photo promotion 7">
+        <img src="promo/7.jpg" alt="Promotion — vue 7" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/8.jpg" data-alt="Promotion — vue 8" role="button" tabindex="0" aria-label="Agrandir la photo promotion 8">
+        <img src="promo/8.jpg" alt="Promotion — vue 8" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+      <div class="gallery-item" data-category="promotions" data-src="promo/9.jpg" data-alt="Promotion — vue 9" role="button" tabindex="0" aria-label="Agrandir la photo promotion 9">
+        <img src="promo/9.jpg" alt="Promotion — vue 9" loading="lazy">
+        <div class="item-zoom" aria-hidden="true">🔍</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a href="booking.html" class="btn btn-gold btn-lg">✨ Réserver une prestation</a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo-text">Lahlou Hammam &amp; Spa</span>
+        <span class="footer-logo-sub">💯% Femmes · Tanger, Maroc</span>
+        <p>Votre espace de beauté à Tanger.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/lahlou.spa_coif_esth_hammam/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://web.facebook.com/lahlouspa/" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@lahlouhammamspa5398" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://wa.me/212663622657" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Galerie</a></li><li><a href="booking.html">Réservation</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#coiffure">Coiffure</a></li><li><a href="services.html#esthetique">Esthétique</a></li><li><a href="services.html#hammam">Hammam</a></li><li><a href="services.html#massage">Massage</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:0663622657">📞 0663 622 657</a></li><li>📍 <a href="https://maps.app.goo.gl/YPXD6qZvrERKqMsW9" target="_blank" rel="noopener">Tanger 90000, Maroc</a></li><li><a href="http://lahlou.ma" target="_blank" rel="noopener">🌐 lahlou.ma</a></li></ul></div>
+    </div>
+  </div>
+  <div class="container"><div class="footer-bottom"><p>© 2026 Lahlou Hammam &amp; Spa. Tous droits réservés.</p></div></div>
+</footer>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-label="Agrandissement">
+  <button id="lightbox-close" class="lightbox-close" aria-label="Fermer">✕</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+</div>
+
+<a href="https://wa.me/212663622657" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <span class="whatsapp-tooltip">WhatsApp</span>
+</a>
+<button class="back-to-top" aria-label="Haut de page">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+  const galleryItems = document.querySelectorAll('#gallery-grid .gallery-item');
+  const filterBtns  = document.querySelectorAll('.filter-btn');
+
+  // Lightbox
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  galleryItems.forEach(item => {
+    const open = () => openLightbox(item.dataset.src, item.dataset.alt);
+    item.addEventListener('click', open);
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lb) lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('active')) closeLightbox(); });
+
+  // Filter with fade transition
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      // Fade everything out
+      galleryItems.forEach(item => { item.style.opacity = '0'; });
+
+      setTimeout(() => {
+        galleryItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? '' : 'none';
+        });
+        // Double rAF ensures display change is painted before opacity transition fires
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          galleryItems.forEach(item => {
+            if (item.style.display !== 'none') item.style.opacity = '1';
+          });
+        }));
+      }, 200);
+    });
+  });
+</script>
+</body>
+</html>
