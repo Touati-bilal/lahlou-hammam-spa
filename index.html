@@ -39,7 +39,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 8.18 8.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         0663 622 657
       </a>
-      <a href="tel:+212663622657" class="nav-book-btn">
+      <a href="https://wa.me/212663622657" target="_blank" class="nav-book-btn">
         <span class="btn-label">Réserver</span>
       </a>
       <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -90,19 +90,84 @@
     </div>
     <p class="hero-desc">Votre temple de beauté à Tanger.<br>Un espace dédié à votre bien-être et votre éclat.</p>
     <div class="hero-cta">
-      <a href="tel:+212663622657" class="btn btn-gold btn-lg">✨ Réserver Maintenant</a>
-      <a href="services.html" class="btn btn-outline btn-lg">Voir les Tarifs</a>
+      <a href="https://wa.me/212663622657" target="_blank" class="btn btn-gold btn-lg">✨ Réserver Maintenant</a>
+      <a href="services.html" class="btn btn-outline btn-lg" onclick="event.preventDefault();document.getElementById('forfaits').scrollIntoView({behavior:'smooth'})">Voir les Tarifs</a>
     </div>
     <div class="hero-rating" aria-label="Note: 4.7 sur 5, 258 avis Google">
-      <img src="https://www.google.com/favicon.ico" width="16" height="16" style="vertical-align:middle;margin-right:4px;" alt="Google">
-      <span class="stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
+<span class="stars" aria-hidden="true">★★★★★</span>
       <strong>4.7 / 5</strong>
+      <span>— 258 Avis Google</span>
     </div>
     <div class="hero-services-pills" aria-label="Nos services">
       <span>Coiffure</span>
       <span>Esthétique</span>
       <span>Hammam</span>
       <span>Massage</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PACKAGES SECTION ──────────────────────────────────── -->
+<section id="forfaits" style="background:var(--cream);scroll-margin-top:80px" aria-labelledby="packages-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nos Forfaits</span>
+      <h2 id="packages-title">Offres Exclusives</h2>
+      <p>Des rituels complets à prix avantageux — -20% le Lundi &amp; Mardi sur tous les forfaits</p>
+    </div>
+    <div id="forfaits-carousel" class="sec-carousel" data-gap="1.25" data-visible='{"desktop":3,"tablet":2,"mobile":1}' data-mobile-pct="0.88" data-start="0" aria-label="Carrousel des forfaits">
+      <button class="carousel-btn carousel-btn--prev" aria-label="Forfait précédent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <div class="sec-carousel__viewport">
+        <div class="sec-carousel__track">
+
+          <article class="package-card">
+            <div class="package-badge">BEAUTÉ</div>
+            <span class="package-icon" aria-hidden="true">💅</span>
+            <h3 class="package-name">Forfait Beauté</h3>
+            <div class="package-price">280 <span>MAD</span></div>
+            <ul class="package-features">
+              <li>Coiffure (coupe + brushing)</li>
+              <li>Vernis permanent</li>
+              <li>Soin sourcils</li>
+            </ul>
+            <a href="https://wa.me/212663622657" target="_blank" class="btn btn-gold btn-sm">Réserver →</a>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">BIEN-ÊTRE</div>
+            <span class="package-icon" aria-hidden="true">🌿</span>
+            <h3 class="package-name">Escapade Dorée</h3>
+            <div class="package-price">350 <span>MAD</span></div>
+            <ul class="package-features">
+              <li>Hammam traditionnel</li>
+              <li>Gommage au savon beldi</li>
+              <li>Massage relaxant 30 min</li>
+            </ul>
+            <a href="https://wa.me/212663622657" target="_blank" class="btn btn-gold btn-sm">Réserver →</a>
+          </article>
+
+          <article class="package-card package-card--featured">
+            <div class="package-badge package-badge--gold">COMPLET ⭐</div>
+            <span class="package-icon" aria-hidden="true">🌸</span>
+            <h3 class="package-name">Rituel Complet</h3>
+            <div class="package-price">500 <span>MAD</span></div>
+            <ul class="package-features">
+              <li>Hammam traditionnel</li>
+              <li>Gommage kessa</li>
+              <li>Masque ghassoul</li>
+              <li>Massage relaxant 1h</li>
+              <li>Soin visage</li>
+            </ul>
+            <a href="https://wa.me/212663622657" target="_blank" class="btn btn-gold btn-sm">Réserver →</a>
+          </article>
+
+        </div>
+      </div>
+      <button class="carousel-btn carousel-btn--next" aria-label="Forfait suivant">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9,18 15,12 9,6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -587,7 +652,7 @@
     var config      = JSON.parse(wrapper.dataset.visible || '{"desktop":3,"tablet":2,"mobile":1}');
     var minMobileW  = parseInt(wrapper.dataset.minMobileW || '0', 10);
     var mobilePct   = parseFloat(wrapper.dataset.mobilePct || '0.88');
-    var current     = 0;
+    var current     = parseInt(wrapper.dataset.start || '0', 10);
     var dotsEl      = null;
     var hinted      = false;
 
@@ -657,10 +722,9 @@
 
     // ── Navigate ─────────────────────────────────────────────
     function goTo(idx, animate) {
-      var max = getMaxIndex();
-      // Wrap around for looping
-      if (idx < 0)    idx = max;
-      if (idx > max)  idx = 0;
+      var n = cards.length;
+      // True modulo loop — works for any step size, both directions
+      idx = ((idx % n) + n) % n;
       current = idx;
       var raw    = current * (getCardWidth() + getGap());
       var offset = raw - getCenterOffset();
@@ -741,6 +805,7 @@
     cards[idx].classList.add('active');
   }, 3000);
 })();
+
 
 // ── Hero promo pill: rotating text ───────────────────────────
 (function () {
